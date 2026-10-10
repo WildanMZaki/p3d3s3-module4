@@ -10,10 +10,19 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $table = 'users';
+    protected $primaryKey = 'id_user';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     protected $fillable = [
+        'id_user',
+        'nama_lengkap',
+        'email',
         'username',
         'password',
-        'nama_lengkap',
+        'no_hp',
+        'alamat',
     ];
 
     protected $hidden = [
@@ -26,5 +35,10 @@ class User extends Authenticatable
         return [
             'password' => 'hashed',
         ];
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'id_user', 'id_user');
     }
 }
