@@ -10,16 +10,22 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        User::create([
-            'username'     => 'ali',
-            'password'     => Hash::make('rahasia123'),
-            'nama_lengkap' => 'Ali Darmono',
-        ]);
+        User::updateOrCreate(
+            ['username' => 'ali'],
+            [
+                'password'     => Hash::make('rahasia123'),
+                'nama_lengkap' => 'Ali Darmono',
+            ]
+        );
 
-        User::create([
-            'username'     => 'siti',
-            'password'     => Hash::make('siti456'),
-            'nama_lengkap' => 'Siti Rope\'ah',
-        ]);
+        User::updateOrCreate(
+            ['username' => 'siti'],
+            [
+                'password'     => Hash::make('siti456'),
+                'nama_lengkap' => 'Siti Rope\'ah',
+            ]
+        );
+
+        $this->call(BarangSeeder::class);
     }
 }
