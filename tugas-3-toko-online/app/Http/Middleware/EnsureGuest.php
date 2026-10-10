@@ -17,7 +17,7 @@ class EnsureGuest
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
-            return redirect()->route('dashboard');
+            return redirect('/');
         }
 
         return $next($request);
