@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     /**
-     * Halaman daftar barang yang dijual (/tugas2/index)
+     * Halaman daftar barang yang dijual
      */
     public function index()
     {
@@ -20,7 +20,7 @@ class CartController extends Controller
     }
 
     /**
-     * Halaman keranjang belanja (/tugas2/keranjang)
+     * Halaman keranjang belanja
      */
     public function keranjang()
     {
